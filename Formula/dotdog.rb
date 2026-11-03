@@ -1,8 +1,8 @@
 class Dotdog < Formula
   desc "CLI tool for spec-driven development — write .dog specs, compile .dag graphs, serve to AI agents via MCP"
   homepage "https://specdog.github.io/dotdog"
-  url "https://registry.npmjs.org/dotdog/-/dotdog-0.8.0.tgz"
-  sha256 "107b176e3624c7f0cd1830bacee669c8a00dc9799782b8088ab2f3e35e1fe4c6"
+  url "https://registry.npmjs.org/dotdog/-/dotdog-1.0.0.tgz"
+  sha256 "ec66261ab2127225ebe0167ff88d661d566291eb577a6ae0931fab128093da97"
   license "MIT"
 
   depends_on "node"
@@ -13,6 +13,7 @@ class Dotdog < Formula
   end
 
   test do
-    system "#{bin}/dotdog", "--version"
+    assert_equal "#{version}\n", shell_output("#{bin}/dotdog --version")
+    assert_equal "#{version}\n", shell_output("#{bin}/spec --version")
   end
 end
